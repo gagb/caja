@@ -1,0 +1,129 @@
+<html>
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="main.css">
+
+	<title>Game</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div id="game-loading">
+			<div class="loader"></div>
+			<p id="game-loading-msg"></p>
+		</div>
+
+		<div id="game-area" style="display: none">
+			<div id="game-header">
+				<div id="game-heading"><img class="game-money-icon" src="money.png">: &#36<span id="game-score"></span></div>
+				<div id="game-state">
+					<li>Object: <span id="game-round"></span></li>
+					<li><button id="game-quit-btn" class="btn btn-primar btn-sm">quit</button></li>
+				</div>
+				<div class="game-instruction-neutral" id="game-instruction"></div>	
+				<div id="game-robot-feedback"><img class="game-robot-feedback-head-neutral" id="game-robot-feedback-head">: <span id="game-robot-feedback-text" class="game-robot-feedback-neutral"></span></div>	
+			</div>
+			<div id="game-tutorial" >
+				<div id="game-instructions-carousel" class="carousel">
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+					<div class="item active">
+						<h3>Welcome!</h3>
+							<p>
+							This task is part of a research study investigating human/AI collaboration.
+							In it, you'll be playing a game with help from Marvin the Robot
+							<img class="game-robot-feedback-head-neutral" id="game-robot-feedback-head">
+							</p>
+							<p>
+							You will be presented with a variety of objects, one-by-one.
+							You (with Marvin helping) are required to label these objects as "DEFECTIVE" or "NOT-DEFECTIVE".
+							</p>
+							<p>
+							For example, the screenshot below contains a small, blue, circle-shaped object. A table next to the object enumerates the various features that make up the object and their values.
+							</p>
+							<img class="game-tutorial-img" src="tutorial-1.png">
+						</div>
+						
+						<div class="item">
+
+						<h3>The Task</h3>
+							<p>
+							<strong>
+								We would like you to check to see if a visual object presented to you on the screen is defective. The process of checking to see if an object is defective is complicated, with many variables that might be hidden from you (i.e., not shown in the visual object or in the feature list provided).
+								<br>
+								<br>
+Marvin the robot has learned how to identify defects using all the dimensions of an object, even those you can’t see, but only 80% of the time. Therefore, Marvin's advice to you is going to be wrong for some of the objects around 20% of the time.
+<br>
+<br>
+Your task is to figure out if it is safe to trust Marvin for an object that is shown to you based on what you can see. The objects for which Marvin makes mistakes may be correlated with the features presented to you. Learning these patterns should help you form a strategy so that you can earn more bonus.
+							</strong>
+							</p>
+						<h3>Game controls and scoring</h3>
+							Whenever you encounter an object, you have the option to label it either using Marvin's help or use the 'COMPUTE' button.
+							<!--<strong>It is known that Marvin is 80% reliable.</strong>-->
+							</p>
+							<p>
+							<ul>
+								<li>If you use Marvin and his suggestion is correct, you will earn &#36<span id="game-payoff-a"></span>. 
+								<li>If you use Marvin and his suggestion is wrong, you will lose &#36<span id="game-payoff-b"></span>.</li>
+								<li>If you click on "COMPUTE" you are guaranteed to submit the correct label but earn &#36<span id="game-payoff-c"></span>, because of the extra computational overhead.</li>
+							</ul>
+							</p>
+						</div>
+						
+						<div class="item">
+							<h3>Ready?</h3>
+							<p>
+							The object on the first page contained only three features: color, shape, and size. Objects may be composed of more features. For example, the object in the screenshot below is composed of six features. It contains a large, red, square-shaped object with checkered texture, leopard-print fur, and a horizontal pole piercing through the object.
+							</p>
+							<img class="game-tutorial-img" src="tutorial-2.png">
+							You will now be presented with <span id="game-max-objects"></span> objects, one-by-one. If you are ready to play, hit "Start".
+							</p>
+						</div>
+					</div>
+					
+					<button type=button class="carousel-control btn tutorial-btn" id="game-instructions-back" href="#game-instructions-carousel" data-slide="prev">
+						<span>Back</span>
+					</button>
+					<button type=button class="carousel-control btn tutorial-btn" id="game-instructions-next" href="#game-instructions-carousel" data-slide="next">
+						<span>Next</span>
+					</button>
+					<button id="begin-btn" class="btn tutorial-btn">start</button>
+				</div>
+			</div>
+
+			<div id="game-graphics">
+			<div id="game-graphics-table" class="table table-condensed">
+			</div>
+			</div>
+			<div id="game-controls">
+				<button name="action" class="btn game-controls-btn game-controls-accept" id="game-controls-btn-accept" value=1>use marvin</button>
+				<button name="action" class="btn game-controls-btn game-controls-compute" id="game-controls-btn-compute" value=2>compute</button>
+			</div>
+		</div>
+
+	</div>
+
+		<div style="text-align: center; position: relative; bottom: 5px; left: 50%; width: 75%; margin-left: -37.5%">
+			<a href="mailto:hi.asi@hotmail.com">Contact</a> | <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy &amp; Cookies </a>| <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx">Terms of Use</a>| <a href="https://go.microsoft.com/fwlink/?LinkId=506942">Trademarks</a> | ©2018<br>
+			<img height=14px src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31"></span>
+		</div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="three.min.js"></script>
+	<script src="seedrandom.min.js"></script>
+	<script src="main.js"></script>
+</body>
+
+
+
+</html>

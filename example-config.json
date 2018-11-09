@@ -1,0 +1,33 @@
+{
+	"id": "update-silent-nc",
+	"description": "update but dont notify and keep the same failure boundary",
+	"features": {
+		"color": ["red", "blue"],
+		"shape": ["square", "circle"],
+		"size": ["small", "large"],
+		"texture": ["checkered", "solid"]
+	},
+	"seed": 1,
+	"numrounds": 150,
+	"delay": 2000,
+	"notifystyle": "silent",
+	"updatestyle": "no-change",
+	"payoff": [
+		[0.04, 0.00],
+		[-0.16, 0.00]
+	],
+	"base": {
+		"numconjuncts": 1,
+		"numliterals": 2,
+		"p_err_notc": 0.0,
+		"p_err_c": 0.85,
+		"accuracy": 0.80
+	},
+	"updated": {
+		"numconjuncts": 1,
+		"numliterals": 2,
+		"p_err_notc": 0.0,
+		"p_err_c": 0.85,
+		"accuracy": 0.85
+	}
+}
